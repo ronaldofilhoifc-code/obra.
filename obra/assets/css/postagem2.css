@@ -1,0 +1,38 @@
+.main-boot, .sidebar-boot {
+    height: 100vh;
+}
+.agregar-holder {
+    width: 100%;
+    height: 90%;
+    
+}
+.nao {
+    display: flex;
+   
+    align-items: center;
+    flex-direction: column;
+}
+.momentociencia {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+.segregacao {
+    width: 100%;
+    height: 50%;
+}
+.tamanhoInputs {
+    height: 100%;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 768px){
+    .sidebar-boot {
+        height: 50px;
+    }
+}

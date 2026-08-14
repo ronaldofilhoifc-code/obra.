@@ -1,0 +1,396 @@
+html,
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+.registro-boot {
+    height: 1000px;
+    background-color: rgb(204, 221, 236);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form {
+    width: 100%;
+    height: 100%;
+}
+
+.cadastro-holder {
+    height: 94%;
+    width: 650px;
+    background-color: #f0e8e6;
+    border-radius: 50px;
+}
+.privacidade-holder {
+    width: 650px;
+    height: 5%;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo-holder {
+    width: 100%;
+    height: 17%;
+    /* background-color: crimson; */
+    border-radius: 50px 50px 0px 0px;
+}
+
+.moldura-holder {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.teto-holder {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resize-50 {
+    width: 50px;
+    height: 50px;
+}
+.resize-35 {
+    width: 35px;
+    height: 35px;
+}
+.resize-25 {
+    width: 25px;
+    height: 25px;
+}
+
+p {
+    margin-bottom: 0%;
+    margin-top: 0%;
+}
+
+#titulo p {
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.formulario-holder {
+    height: 63%;
+    width: 100%;
+    /* background-color: darkcyan; */
+
+}
+
+.fields-holder {
+    height: 75%;
+    width: 100%;
+    /* background-color: brown; */
+}
+
+.type-holder {
+    height: 25%;
+    width: 100%;
+}
+
+.label-type-holder {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.texto-margin {
+    width: 80%;
+    height: 100%; 
+    display: flex;
+    align-items: center;
+}
+.input-holder {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.label-type-holder-universe {
+    width: 100%;
+    height: 21.64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.division-holder {
+    height: 85%;
+    width: 100%;
+    display: flex;
+}
+
+.split50 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.radio-data-holder {
+    width: 100%;
+    height: 61.63px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+#radio-data-steal {
+    cursor: pointer;
+}
+#radio {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.radio-holder {
+    height: 100%;
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: right;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.tipo-holder {
+    width: 85%;
+    height: 83%;
+    background-color: rgb(240, 232, 230);
+    border-radius: 10px;
+    border: 1px solid #242323;
+    display: flex;
+    cursor: pointer;
+}
+
+.split70 {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    padding-left: 15px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.split30 {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bolinha {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f5c47c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nomeTipo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.button-holder {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao-maldito {
+    width: 93%;
+    height: 95%;
+    background-color: rgba(255, 152, 0);
+    color: aliceblue;
+    border-radius: 0.375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.botao-registro:hover {
+    background-color: #ffca2c !important;
+    border-color: #ffca2c !important;
+}
+.btn-warning {
+    width: 450px;
+    height: 40px;
+    background-color: #bbb5b5; 
+    /* #ffc107 */
+    color: aliceblue;
+    pointer-events: none;
+}
+.effect-cursor {
+    width: 450px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: not-allowed;
+}
+
+
+.btn-warning {
+    --bs-btn-color: #000;
+    --bs-btn-bg: #ffc107;
+    --bs-btn-border-color: rgb(187, 181, 181);
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #ffca2c;
+    --bs-btn-hover-border-color: #ffc720;
+    --bs-btn-focus-shadow-rgb: 217, 164, 6;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #ffcd39;
+    --bs-btn-active-border-color: #ffc720;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: #ffc107;
+    --bs-btn-disabled-border-color: #ffc107;
+}
+.form-registrar {
+    width: 100%;
+    height: 100%;
+}
+.continue-holder {
+    width: 100%;
+    height: 25px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.split-30-extra {
+    width: 30%;
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.split-50-extra {
+    width: 27%;
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.thedivisionbell {
+    width: 100%;
+}
+.resize-50-p {
+        width: 50px;
+        height: 50px;
+    }
+
+a {
+    color: rgba(255, 152, 0);
+    
+}
+.terceiros-holder {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.botao-terceiro {
+    border-radius: 10px;
+    border: 1px solid #242323;
+    width: 90%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.terceiro-icon {
+    width: 20px;
+    height: 20px;
+}
+@media screen and (max-width: 772px) {
+    .cadastro-holder {
+        width: 450px;
+    }
+    .btn-warning {
+        width: 350px;
+    }
+    .bolinha {
+        width: 40px;
+        height: 40px;
+    }
+    .resize-50-p {
+        width: 40px;
+        height: 40px;
+    }
+    .resize-35 {
+        width: 30px;
+        height: 30px;
+    }
+    #texto-menor {
+        width: 38.5%;
+    }
+    .nomeTipo {
+        font-size: 13.5px;
+    }
+    .linhaFina {
+        font-size: 13.5px;
+    }
+}
+.reg-tipo {
+    display: none;
+}
+
+.inputexc {
+    justify-content: center;
+    align-items: center;
+}
+
+.teste {
+    width: 45px;
+    height: 45px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 0.375rem 0 0 0.375rem;
+    border-right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.imagrresize {
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+}
+
+.label {
+    padding-left: 3px;
+}
+
+.input-reg {
+    width: 90%;
+    height: 45px;
+    border-radius: 0 0.375rem 0.375rem 0;
+    border: 2px solid black;
+    border-left: 0;
+}

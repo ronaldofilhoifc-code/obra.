@@ -1,0 +1,72 @@
+create database siteobra;
+use siteobra;
+
+create table usuario (
+
+    id_usuario int not null primary key AUTO_INCREMENT,
+    nomeCompleto varchar(50),
+    usuario varchar(50) unique,
+    email varchar(50) unique,
+    senha varchar(50),
+    tipoDeConta varchar(50)
+
+);
+
+create table publicacao (
+
+	id_publicacao int not null primary key AUTO_INCREMENT,
+	dataDaObra date,
+    tituloDaObra varchar(50),
+    materiaisDaObra varchar(500),
+    descricaoDaObra varchar(500),
+    autorDaObra varchar(500),
+    id_usuario int not null,
+    foreign key (id_usuario) references usuario(id_usuario)
+    
+);
+
+create table curtida (
+
+    id_curtida int not null primary key AUTO_INCREMENT,
+    id_usuario int not null,
+    id_publicacao int not null,
+    dataCurtida datetime,
+    
+    foreign key (id_usuario) references usuario(id_usuario),
+    foreign key (id_publicacao) references publicacao(id_publicacao)
+
+);
+
+create table comentario (
+
+    id_comentario int not null primary key AUTO_INCREMENT,
+    id_usuario int not null,
+    id_publicacao int not null,
+    dataComentario datetime,
+    texto varchar(500),
+    
+    foreign key (id_usuario) references usuario(id_usuario),
+    foreign key (id_publicacao) references publicacao(id_publicacao)
+
+);
+
+create table categoria (
+
+    id_categoria int not null primary key AUTO_INCREMENT,
+    nomeCategoria varchar(50)
+
+);
+
+create table publicacao_categoria (
+
+	id_associativa int not null AUTO_INCREMENT,
+    id_publicacao int not null,
+    id_categoria int not null,
+    
+    primary key (id_associativa, id_publicacao, id_categoria),
+    
+    foreign key (id_publicacao) references publicacao(id_publicacao),
+    foreign key (id_categoria) references categoria(id_categoria)
+
+);
+
