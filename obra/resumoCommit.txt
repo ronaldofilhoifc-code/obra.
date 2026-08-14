@@ -1,3 +1,4 @@
 18:01 14/08 - Testando os Commits
 18:05 14/08 - a mensagem foi errado
 18:06 14/08 - testando git all .
+19:31 14/08 - início popup (esqueci de att)
