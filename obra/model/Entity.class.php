@@ -71,6 +71,34 @@
             return $statement->fetchAll();
         }
 
+        public function userToId($usuario)
+        {
+            $pdo = parent::getInstance();
+            $sql = "SELECT id_usuario FROM usuario WHERE usuario = :usuario";
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(":usuario",$usuario);
+            $statement->execute();
+
+            return $statement->fetch();
+        }
+
+        public function formatData($dataDiretoDoBanco)
+    {
+        $dataIncrivel = $dataDiretoDoBanco;
+
+        $ano = strpos($dataIncrivel, "-");
+        $ano2 = strrpos($dataIncrivel, "-");
+        $anoEpico = substr($dataIncrivel, 0, $ano);
+        $mesEpico = substr($dataIncrivel, $ano + 1, $ano2 - 5);
+        $diaEpico = substr($dataIncrivel, $ano2 + 1, strlen($dataIncrivel));
+
+        $result = $diaEpico."/".$mesEpico."/".$anoEpico;
+
+        return $result;
+    }
+
+        
+
         public function getInfoTitulo($table,$titulo)
         {
             $pdo = parent::getInstance();

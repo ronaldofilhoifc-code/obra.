@@ -10,6 +10,5 @@
 
     <script src="../assets/js/jotaessestemporarios.js"></script>
     <script src="../assets/js/bolaPerfil.js"></script>
-    <script src="../assets/js/a2.js"></script>
 
 </div>
