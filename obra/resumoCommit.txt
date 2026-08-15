@@ -3,7 +3,7 @@
 18:06 14/08 - testando git all .
 19:31 14/08 - início popup (esqueci de att)
 
-23:16 14/08 - Construção da Etiqueta do Pop-Up / Responsividade Rudimentar
+23:16 14/08 - Construção da Etiqueta do Pop-Up / Responsividade Rudimentar 2
 
 O que fazer:
 
