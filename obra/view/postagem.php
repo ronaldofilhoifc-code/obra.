@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once("../model/Entity.class.php");
+$EntidadePublicacao = new Entity();
 ?>
 <!DOCTYPE html>
 <html lang="pt-Br">
@@ -26,7 +28,7 @@ session_start();
         <div class="row">
             <div class="col-md-12 confirm-boot pop-up" id="pop-up">
                 <div class="mensagem-pop">
-                    <form class="form-popup">
+                    <form class="form-popup" method="post" action="../controller/form-postagem.php">
                         <!-- <div class="close-holder">
                         <div class="fechar-holder" id="fechar">
                             <img src="../assets/imagem/fechar.png" class="fechar-holder">
@@ -46,23 +48,52 @@ session_start();
                         <div class="reciboImg-holder">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-md-5 recibo-holder">
-                                        <input type="text" id="jorge-titulo">
-                                        <input type="text" id="jorge-data">
-                                        <input type="text" id="jorge-descricao">
-                                        <input type="text" id="jorge-materiais">
-                                        <input type="text" id="jorge-imagem">
-                                        <input type="text" id="jorge-autor">
+                                    <div class="col-md-12 titulo-popup">
+                                        <p>Confirmar publicação:</p>
                                     </div>
-                                    <div class="col-md-7 recibo-holder">
-                                        b
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div class="row lostWeekend">
+                                    <input type="hidden" id="jorge-titulo" name="tituloDaObra">
+                                    <input type="hidden" id="jorge-data" name="dataDaObra">
+                                    <input type="hidden" id="jorge-descricao" name="descricaoDaObra">
+                                    <input type="hidden" id="jorge-materiais" name="materiaisDaObra">
+                                    <input type="hidden" id="jorge-imagem">
+                                    <input type="hidden" id="jorge-autor" name="autorDaObra">
+                                    <input type="hidden" id="jorge-usuario" name="id_usuario" value=<?php
+
+                                    if (isset($_SESSION["usuarioLogado"])) {
+
+                                        $tristeza = $EntidadePublicacao->userToId($_SESSION["usuarioLogado"]);
+                                        echo $tristeza[0];
+
+                                    } else if (isset($_COOKIE["usuarioLogado"])) {
+                                        $tristeza = $EntidadePublicacao->userToId($_COOKIE["usuarioLogado"]);
+                                        echo $tristeza[0];
+                                    }
+                                    ?>>
+                                    <div class="col-5 recibo-holder" id="etiqueta">
+
+
+
+
+
+
+                                    </div>
+                                    <div class="col-7 recibo-holder">
+                                        Nesse container, vai ter a imagem que o usuário colocou no input. Fazer as
+                                        necessárias inserções do caminho da imagem no banco. Toda transação deve ser
+                                        feita quando clicar no botão enviar abaixo (a única coisa que ele não upa é a
+                                        imagem). No js, é necessário também não deixar o pop-up mostrar caso a imagem no
+                                        input esteja vazia (vetor autor[] em popup-postagem.js)
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                         <div class="close-holder">
-
+                            <button type="submit" class="btn btn-success" id="bloqueador">Enviar</button>
                         </div>
                     </form>
 
@@ -71,7 +102,7 @@ session_start();
         </div>
     </div>
 
-    <div class="container-fluid color pagina-normal">
+    <div class="container-fluid color pagina-normal" id="eusintooshadow">
         <div class="row knocktotheleft">
             <div class="col-md-1 sidebar-boot">
                 <div class="sidebar-holder">
@@ -116,8 +147,16 @@ session_start();
                                     <div class="new-page-holder">
                                         <div class="split23">
                                             <div class="button-circle-holder bola-perfil" id="bolaPerfil2">
-                                                <input type="text" name="usuarioMini" id="usuarioMini"
-                                                    value="<?php echo $_SESSION["usuarioLogado"] ?>">
+                                                <input type="text" name="usuarioMini" id="usuarioMini" value=<?php
+
+                                                if (isset($_SESSION["usuarioLogado"])) {
+                                                    echo $_SESSION["usuarioLogado"];
+                                                } else if (isset($_COOKIE["usuarioLogado"])) {
+                                                    echo $_COOKIE["usuarioLogado"];
+                                                }
+
+
+                                                ?>>
                                             </div>
                                         </div>
                                     </div>
@@ -225,8 +264,8 @@ session_start();
                                         </div>
                                     </div>
                                 </div>
-                                <div class="segregacao"><button onclick="popupar()"
-                                        class="btn btn-success">Enviar</button>
+                                <div class="segregacao"><button onclick="popupar()" class="btn btn-success">Confirmar
+                                        obra.</button>
                                 </div>
 
                             </div>
@@ -242,7 +281,7 @@ session_start();
 
 
 
-        <script src="../assets/js/inputFile.js"></script>
+
         <script src="../assets/js/popup-postagem.js"></script>
 
 

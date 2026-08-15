@@ -1,34 +1,65 @@
 let switchPopUp = 0;
 let popupHolder = document.getElementById("pop-up");
 let botaoFechar = document.getElementById("fechar");
+let etiqueta = document.getElementById("etiqueta");
+let shadow = document.getElementById("eusintooshadow");
+
+let ondeParou = -1;
+let botaoPopUp = document.getElementById("bloqueador");
+
+
+
 
 function popupar() {
-    let pop_autor = document.getElementById("autor");
-    let pop_data = document.getElementById("data");
-    let pop_titulo = document.getElementById("titulo");
-    let pop_materiais = document.getElementById("materiais");
-    let pop_descricao = document.getElementById("descricao");
-    let pop_imagem = document.getElementById("momentociencia");
-
-    let pop_autorA = document.getElementById("jorge-autor");
-    let pop_dataA = document.getElementById("jorge-data");
-    let pop_tituloA = document.getElementById("jorge-titulo");
-    let pop_materiaisA = document.getElementById("jorge-materiais");
-    let pop_descricaoA = document.getElementById("jorge-descricao");
-    let pop_imagemA = document.getElementById("jorge-imagem");
-
-    pop_autorA.value = pop_autor.value;
-    pop_dataA.value = pop_data.value;
-    pop_tituloA.value = pop_titulo.value;
-    pop_materiaisA.value = pop_materiais.value;
-    pop_descricaoA.value = pop_descricao.value;
-
+    let temVazio = false;
     popupHolder.style.display = "flex";
+    shadow.style.filter = "grayscale(100%)";
+    shadow.style.filter = "brightness(25%)";
+    // inputs da pagina principal (postagem-) (para a imagem, o id é "momentociencia")
+
+    let autor = [document.getElementById("autor").value, document.getElementById("data").value, document.getElementById("titulo").value,
+    document.getElementById("materiais").value, document.getElementById("descricao").value];
+
+
+    document.getElementById("jorge-autor").value = autor[0];
+    document.getElementById("jorge-data").value = autor[1];
+    document.getElementById("jorge-titulo").value = autor[2];
+    document.getElementById("jorge-materiais").value = autor[3];
+    document.getElementById("jorge-descricao").value = autor[4];
+
+    for (let i = 0; i < autor.length; i++) {
+        if (autor[i] == "") {
+            temVazio = true;
+            ondeParou = i;
+            break;
+        }
+    }
+
+    if (temVazio) {
+        etiqueta.innerHTML = "";
+        let recibo = "Não é possível publicar, você não especificou todos os campos!";
+        bloqueador.classList.add("bloqueado");
+        bloqueador.textContent = "Não Permitido";
+        etiqueta.innerHTML += recibo;
+    } else {
+        etiqueta.innerHTML = "";
+        bloqueador.textContent = "Publicar";
+        bloqueador.classList.remove("bloqueado");
+        let recibo = "<p>Autor: " + autor[0] + "<br>Data: " + autor[1] + "<br>Título: " + autor[2] + "<br>Materiais: " + autor[3] + "<br> Descrição: " + autor[4] + "</p>";
+        etiqueta.innerHTML += recibo;
+    }
+
+
+
 
 }
 
 
 
-botaoFechar.addEventListener("click", function(){
+
+
+botaoFechar.addEventListener("click", function () {
     popupHolder.style.display = "none";
+    shadow.style.filter = "grayscale(0%)";
+    shadow.style.filter = "brightness(100%)";
 });

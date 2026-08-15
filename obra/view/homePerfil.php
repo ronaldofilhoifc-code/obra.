@@ -67,7 +67,18 @@ session_start();
                                         <div class="split23">
                                             <div class="button-circle-holder bola-perfil" id="bolaPerfil2">
                                                 <input type="text" name="usuarioMini" id="usuarioMini"
-                                                    value="<?php echo $_SESSION["usuarioLogado"] ?>">
+                                                    value=
+                                                    
+                                                    <?php 
+                                                    
+                                                    if (isset($_SESSION["usuarioLogado"])) {
+                                                        echo $_SESSION["usuarioLogado"];
+                                                    } else if (isset($_COOKIE["usuarioLogado"])) {
+                                                        echo $_COOKIE["usuarioLogado"];
+                                                    }
+                                                    
+                                                    
+                                                    ?>>
                                             </div>
                                         </div>
                                     </div>
