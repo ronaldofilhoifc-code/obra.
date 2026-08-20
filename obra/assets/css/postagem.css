@@ -150,17 +150,3 @@ p {
 }
 
 
-@media screen and (max-width: 768px) {
-    .col-md-1 {
-        height: 50px;
-    }
-
-    .postagem-main-boot {
-        height: 150vh;
-    }
-
-    .postagem-criar-titulo {
-        height: 13%;
-    }
-
-}

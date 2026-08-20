@@ -38,4 +38,3 @@ bolaPerfil.addEventListener("click", function () {
   }
 
 });
-
