@@ -5,7 +5,7 @@
             if(!isset(self::$instance))
             {
                 self::$instance = //:: = forma de acessar propriedades statics em php
-                new PDO("mysql:host=localhost;port=3307;dbname=siteobra;","root","",
+                new PDO("mysql:host=localhost;port=3306;dbname=siteobra;","root","",
                 array(PDO::MYSQL_ATTR_INIT_COMMAND =>'SET NAMES utf8')
                 );
                 self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -24,7 +24,7 @@ $EntidadePublicacao = new Entity();
 
 <body>
 
-    <div class="container-fluid">
+    <div class="container-fluid tresanoes">
         <div class="row">
             <div class="col-md-12 confirm-boot pop-up" id="pop-up">
                 <div class="mensagem-pop">
