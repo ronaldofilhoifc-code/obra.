@@ -28,7 +28,7 @@ $EntidadePublicacao = new Entity();
         <div class="row">
             <div class="col-md-12 confirm-boot pop-up" id="pop-up">
                 <div class="mensagem-pop">
-                    <form class="form-popup" method="post" action="../controller/form-postagem.php">
+                    <form id="form-publicacao" class="form-popup" method="post" action="../controller/form-postagem.php" enctype="multipart/form-data">
                         <!-- <div class="close-holder">
                         <div class="fechar-holder" id="fechar">
                             <img src="../assets/imagem/fechar.png" class="fechar-holder">
@@ -59,7 +59,6 @@ $EntidadePublicacao = new Entity();
                                     <input type="hidden" id="jorge-data" name="dataDaObra">
                                     <input type="hidden" id="jorge-descricao" name="descricaoDaObra">
                                     <input type="hidden" id="jorge-materiais" name="materiaisDaObra">
-                                    <input type="hidden" id="jorge-imagem">
                                     <input type="hidden" id="jorge-autor" name="autorDaObra">
                                     <input type="hidden" id="jorge-usuario" name="id_usuario" value=<?php
 
@@ -82,11 +81,8 @@ $EntidadePublicacao = new Entity();
 
                                     </div>
                                     <div class="col-7 recibo-holder">
-                                        Nesse container, vai ter a imagem que o usuário colocou no input. Fazer as
-                                        necessárias inserções do caminho da imagem no banco. Toda transação deve ser
-                                        feita quando clicar no botão enviar abaixo (a única coisa que ele não upa é a
-                                        imagem). No js, é necessário também não deixar o pop-up mostrar caso a imagem no
-                                        input esteja vazia (vetor autor[] em popup-postagem.js)
+                                        <div class="preview-holder">
+                                            <img id="preview-imagem" src="" alt="Preview da imagem">
                                     </div>
                                 </div>
                             </div>
@@ -245,22 +241,23 @@ $EntidadePublicacao = new Entity();
                                     <div class="inputImagem-holder">
                                         <div class="layer-decoracao">
 
-                                            <img src="../assets/imagem/upload-icon.png" class="up-icon">
+                                            <img src="../assets/imagem/upload-icon.png" class="up-icon" id="upload-icon">
 
-                                            <div class="titulo-insira titulo">
+                                            <div class="titulo-insira titulo" id="texto-upload">
                                                 <p>Clique aqui para inserir sua imagem!</p>
                                             </div>
-                                            <div class="titulo-insira linha-fina">
+                                            <div class="titulo-insira linha-fina" id="texto-tamanho">
                                                 <p>Tamanho máximo: 10Mb</p>
                                             </div>
-                                            <div class="titulo-insira Imagem ">
+                                            <div class="titulo-insira Imagem " id="texto-imagem">
                                                 <p>Não há uma imagem selecionada!</p>
                                             </div>
 
+                                            <img id="preview-upload" src="" alt="Preview da imagem">
 
                                         </div>
                                         <div class="layer-input">
-                                            <input type="file" class="momentociencia" id="momentociencia" required>
+                                            <input form="form-publicacao" type="file" class="momentociencia" id="momentociencia" name="imagem" accept="image/png, image/jpeg, image/webp" required>
                                         </div>
                                     </div>
                                 </div>

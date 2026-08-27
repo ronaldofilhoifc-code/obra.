@@ -15,11 +15,14 @@ function login ($metodoLog,$cred,$senha2,$logCookie) {
 
     global $Entity;
 
-    if(empty($Entity->login("usuario",$metodoLog,$cred,$senha2))) {
-        
-        $_SESSION["mensagem"] = "Esse usuário não existe!";
+    if(empty($Entity->login("usuario", $metodoLog, $cred, $senha2))) {
 
-    } else {
+    $_SESSION["erro"] = "E-mail/usuário ou senha incorretos.";
+
+    header("Location: ../view/login.php");
+    exit();
+
+} else {
 
         $logado = $Entity->login("usuario",$metodoLog,$cred,$senha2);
 
