@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-Br">
 
@@ -38,6 +42,7 @@
 
           </div>
           <div class="informacoes">
+
             <form name="form-login" class="form-login" method="post" action="../controller/login.php">
 
 
@@ -94,6 +99,18 @@
                 </div>
               </div>
 
+              <?php if (isset($_SESSION["erro"])): ?>
+
+                <div class="erro-loginnn">
+                  <?php
+                  echo $_SESSION["erro"];
+                  unset($_SESSION["erro"]);
+                  ?>
+                </div>
+
+              <?php endif; ?>
+
+
               <div class="lembrar-me">
                 <div class="lembrar-me-holder">
                   <div class="split50-new">
@@ -106,7 +123,7 @@
                 </div>
               </div>
               <div class="button-holder-wow">
-                <input type="hidden" value="0" name="tipo" id="tipo"> 
+                <input type="hidden" value="0" name="tipo" id="tipo">
                 <button type="submit" class="btn btn-warning botao-registro" id="botao-enviar-cred">Enviar</button>
               </div>
 
