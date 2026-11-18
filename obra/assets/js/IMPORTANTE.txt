@@ -3,6 +3,7 @@ SOB NENHUMA HIPÓTESE APAGUE O "jotaessestemporarios.js", JÁ QUE ELE FAZ MUITAS
 - Enviar o tipo de conta entre "Amante de Arte" e "Artistas";
 - Animações do estilo do site;
 - Mudanças da página principal entre Início / Perfil / Configurações
+- Fundo aleatório do Login / Registrar
 
 
 

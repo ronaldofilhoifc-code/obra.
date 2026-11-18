@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../assets/css/registrar.css" type="text/css">
 </head>
 
-<body>
+<body id="changeBack">
 
     <div class="container-fluid">
         <div class="row">
