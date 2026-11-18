@@ -1,51 +1,58 @@
-<?php 
-
+<?php
 session_start();
 require_once("../model/Entity.class.php");
 $Entity = new Entity();
 
-$senha = $_POST["senha"];
+$checkSessaoCookie = $_POST["cookieSessao"];
+$switchSessaoCookie = 99;
 $tipo = $_POST["tipo"];
-$cookieLog = $_POST["marcos"];
+$senha = $_POST["senha"];
 
-// marcos ativado = cookie 3 meses
-// marcos desativado = sessão maldita
-
-function login ($metodoLog,$cred,$senha2,$logCookie) {
-
-    global $Entity;
-
-    if(empty($Entity->login("usuario", $metodoLog, $cred, $senha2))) {
-
-    $_SESSION["erro"] = "E-mail/usuário ou senha incorretos.";
-
-    header("Location: ../view/login.php");
-    exit();
-
+if (isset($checkSessaoCookie)) {
+    $switchSessaoCookie = 1;
 } else {
+    $switchSessaoCookie = 0;
+}
 
-        $logado = $Entity->login("usuario",$metodoLog,$cred,$senha2);
+function login($switchEmailUsuario, $credencial, $senha)
+{
+    global $Entity;
+    global $switchSessaoCookie;
 
-        if ($logCookie) { // O LOGIN COM COOKIES FUNCIONA
+
+    //tabela, tipodelogin, credencial, senha
+
+    if (empty($Entity->login("usuario", $switchEmailUsuario, $credencial, $senha))) {
+
+        $_SESSION["erro"] = "E-mail/usuário ou senha incorretos.";
+        header("Location: ../view/login.php");
+        exit();
+
+    } else {
+
+        $logado = $Entity->login("usuario", $switchEmailUsuario, $credencial, $senha);
+
+        if ($switchSessaoCookie == 1) { // O LOGIN COM COOKIES FUNCIONA
             setcookie("usuarioLogado", $logado[0][0]["usuario"], time() + 7889238, "/"); // a barra é necessária para manter em todo o domínio
             echo "cookie";
-            echo "<br>".$_COOKIE["usuarioLogado"];
+            echo "<br>" . $_COOKIE["usuarioLogado"];
+            header("Location: ../view/homepage.php");
         } else {
             $_SESSION["usuarioLogado"] = $logado[0][0]["usuario"];
+            header("Location: ../view/homepage.php");
         }
-
-        header("Location: ../view/homepage.php");
 
     }
 
 }
 
 if ($tipo == 0) {
-    $metodo = $_POST["email"];
-    login("email", $metodo, $senha, $cookieLog);
+    $credencial = $_POST["email"];
+    login("email", $credencial, $senha);
 } else {
-    $metodo = $_POST["usuario"];
-    login("usuario", $metodo, $senha, $cookieLog);
+    $credencial = $_POST["usuario"];
+    login("usuario", $credencial, $senha);
 }
+
 
 ?>

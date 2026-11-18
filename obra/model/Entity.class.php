@@ -46,8 +46,9 @@
             }
 
             $statement->execute();
-
         }
+
+        
 
 
 
@@ -170,16 +171,29 @@
             return $return_arr;
         }
 
-        public function loginPrincipal($email,$senha)
+        public function newUserInsert($table,$data)
         {
             $pdo = parent::getInstance();
-            $sql = "SELECT * FROM usuario WHERE email = '$email' and senha = '$senha';";
-           
+            $fields = implode(", ",array_keys($data));
+            $values = ":".implode(", :",array_keys($data));
+
+            $sql="INSERT INTO $table($fields) VALUES ($values)";
             $statement = $pdo->prepare($sql);
+
+            foreach($data as $key => $value){
+                $statement->bindValue(":$key",$value,PDO::PARAM_STR);
+            }
+
             $statement->execute();
-            return $statement;
+
+            $_SESSION["usuarioLogado"] = $data["usuario"];
+
+            header("Location: ../view/homepage.php");
         }
 
+        
+
+        
     
     }
 

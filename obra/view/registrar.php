@@ -52,7 +52,7 @@
                                 <div class="input-holder">
                                     <div class="texto-margin">
                                         <div class="teste"><img class="imagrresize" src="../assets/imagem/chat.png"></div>
-                                        <input type="text" class="input-reg" id="reg-nome" required name="reg-nome">
+                                        <input type="text" class="input-reg" id="reg-nome" required name="nomeCompleto">
 
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                 <div class="input-holder">
                                     <div class="texto-margin">
                                         <div class="teste"><img class="imagrresize" src="../assets/imagem/at.png"></div>
-                                        <input type="text" class="input-reg" id="reg-user" required name="reg-user">
+                                        <input type="text" class="input-reg" id="reg-user" required name="usuario">
                                     </div>
                                 </div>
                                 <div class="label-type-holder-universe">
@@ -81,7 +81,7 @@
                                 <div class="input-holder">
                                     <div class="texto-margin">
                                         <div class="teste"><img class="imagrresize" src="../assets/imagem/pngegg.png"></div>
-                                        <input type="email" class="input-reg" id="reg-email" required name="reg-email">
+                                        <input type="email" class="input-reg" id="reg-email" required name="email">
                                     </div>
                                 </div>
                                 <div class="label-type-holder-universe">
@@ -95,8 +95,8 @@
                                 <div class="input-holder">
                                     <div class="texto-margin">
                                         <div class="teste"><img class="imagrresize" src="../assets/imagem/chaveiro.png"></div>
-                                        <input type="password" class="input-reg" id="reg-senha" required name="reg-senha">
-                                        <input type="text" class="reg-tipo" id="reg-tipo" name="reg-tipo">
+                                        <input type="password" class="input-reg" id="reg-senha" required name="senha">
+                                        <input type="text" class="reg-tipo" id="reg-tipo" name="tipoDeConta">
                                     </div>
                                 </div>
 

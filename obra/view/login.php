@@ -114,7 +114,7 @@ session_start();
               <div class="lembrar-me">
                 <div class="lembrar-me-holder">
                   <div class="split50-new">
-                    <input type="checkbox" class="resize-25" id="soPointer" name="marcos">
+                    <input type="checkbox" class="resize-25" id="soPointer" name="cookieSessao">
                     <p>Lembrar-me</p>
                   </div>
                   <div class="split50-new" id="split-direita">
