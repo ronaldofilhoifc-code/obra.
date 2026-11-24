@@ -1,31 +1,33 @@
 <?php 
-
+session_start();
 require_once("../model/Entity.class.php");
-require_once("../controller/login.php");
 $Entity = new Entity();
 
-$nomeCompleto = $_POST["reg-nome"];
-$nomeUser = $_POST["reg-user"];
-$email = $_POST["reg-email"];
-$senha = $_POST["reg-senha"];
-$tipo = $_POST["reg-tipo"];
+$nomeCompleto = $_POST["nomeCompleto"];
+$usuario = $_POST["usuario"];
+$senha = $_POST["senha"];
+$email = $_POST["email"];
+$tipoDeConta = $_POST["tipoDeConta"];
 
-// echo $nomeCompleto." ".$nomeUser." ".$email." ".$senha." ".$tipo;
-
-$Regdicionario = [
+$dicionario = [
 
 "nomeCompleto" => $nomeCompleto,
-"usuario" => $nomeUser,
-"email" => $email,
+"usuario" => $usuario,
 "senha" => $senha,
-"tipoDeConta" => $tipo
+"email" => $email,
+"tipoDeConta" => $tipoDeConta,
 
 ];
 
-$Entity -> insert("usuario", $Regdicionario);
-login("usuario", $nomeUser, $senha, false);
 
 
+try {
+   $Entity -> newUserInsert("usuario", $dicionario); 
+
+} catch(Exception $e) {
+    echo $e;
+    echo "explodiu tudo";
+}
 
 
 ?>

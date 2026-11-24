@@ -1,5 +1,17 @@
 $(document).ready(function () {
 
+    function getRandomFloatInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    imagemDeFundo = "fun"+Math.floor(getRandomFloatInRange(1, 7))+".jpg";
+    console.log(imagemDeFundo);
+
+    document.getElementById("changeBack").style.backgroundImage = "url(../assets/imagem/fundosLogin/"+imagemDeFundo+")";
+
+    
+    
+
     let botaosino = 1;
 
     // botão de sino (ativar/desativar notificações)
@@ -62,7 +74,7 @@ $(document).ready(function () {
 
     // botão de configurações
 
-    
+
 
     // Função que determina se o checkbox e o tipo de conta foram clicados para permitir o cadastro
 
