@@ -72,3 +72,5 @@ create table publicacao_categoria (
 
 );
 
+insert into usuario (nomeCompleto, usuario, email, senha, tipoDeConta, eAdmin) 
+values ('admin', 'admin', 'admin@gmail.com', 'admin', 'artista', 1);

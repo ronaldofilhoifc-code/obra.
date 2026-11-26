@@ -66,18 +66,16 @@ session_start();
                                         <div class="split23">
                                             <div class="button-circle-holder bola-perfil" id="bolaPerfil2">
                                                 <input type="text" name="usuarioMini" id="usuarioMini"
-                                                    value=
-                                                    
-                                                    <?php 
-                                                    
-                                                    if (isset($_SESSION["usuarioLogado"])) {
-                                                        echo $_SESSION["usuarioLogado"];
-                                                    } else if (isset($_COOKIE["usuarioLogado"])) {
-                                                        echo $_COOKIE["usuarioLogado"];
-                                                    }
-                                                    
-                                                    
-                                                    ?>>
+                                                    value=<?php
+
+                                                            if (isset($_SESSION["usuarioLogado"])) {
+                                                                echo $_SESSION["usuarioLogado"];
+                                                            } else if (isset($_COOKIE["usuarioLogado"])) {
+                                                                echo $_COOKIE["usuarioLogado"];
+                                                            }
+
+
+                                                            ?>>
                                             </div>
                                         </div>
                                     </div>
@@ -124,9 +122,26 @@ session_start();
                                 </div>
                                 <div class="split25">
                                     <div class="botao-holder">
-                                        <button class="btn btn-danger" id="botao-enviar-pesquisa">Pesquisar</button>
+                                        <button class="btn btn-danger" type="button" id="botao-enviar-pesquisa">Pesquisar</button>
                                     </div>
-
+                                    <?php
+                                    require_once __DIR__ . "/../controller/verificaAdmin.php";
+                                    $adminAtual = false;
+                                    try {
+                                        $adminAtual = usuarioAdminAtual();
+                                    } catch (Throwable $e) {
+                                        $adminAtual = false;
+                                    }
+                                    if ($adminAtual) {
+                                    ?>
+                                        <div class="controle-admin">
+                                            <a href="administrarUsuarios.php"
+                                                class="btn btn-sm btn-danger"
+                                                title="Administrar usuários">
+                                                <strong>CONTROLE</strong>
+                                            </a>
+                                        </div>
+                                    <?php } ?>
                                     <div class="sinos-holder-70">
                                         <div class="icone-sininho">
                                             <a href="homeConfig.php">
@@ -164,6 +179,58 @@ session_start();
     include_once("offcanvasMaldito.php");
     ?>
 
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Navegação da barra lateral (estes handlers estavam ausentes da homepage).
+            var editar = document.getElementById("botaoeditmain");
+            if (editar) editar.addEventListener("click", function() {
+                window.location.href = "postagem.php";
+            });
+
+            var inicio = document.querySelector(".homeA");
+            if (inicio) inicio.addEventListener("click", function() {
+                window.location.href = "homepage.php";
+            });
+
+            var perfil = document.querySelector(".perfilA");
+            if (perfil) perfil.addEventListener("click", function() {
+                window.location.href = "homePerfil.php";
+            });
+
+            // Abre/fecha o botão de sair ao clicar no avatar.
+            var avatar = document.getElementById("bolaPerfil2");
+            var sair = document.getElementById("sairPratico");
+            if (avatar && sair) {
+                avatar.addEventListener("click", function() {
+                    sair.style.display = (sair.style.display === "flex") ? "none" : "flex";
+                });
+            }
+
+            // Alterna notificações sem provocar navegação para o topo.
+            var sino = document.querySelector(".sino2 a");
+            if (sino) {
+                var notificacoesAtivas = true;
+                sino.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    notificacoesAtivas = !notificacoesAtivas;
+                    alert(notificacoesAtivas ? "Notificações ativadas!" : "Notificações desativadas!");
+                });
+            }
+
+            // A pesquisa ainda não possui consulta de obras implementada; evita que o botão recarregue a página.
+            var pesquisar = document.getElementById("botao-enviar-pesquisa");
+            if (pesquisar) pesquisar.addEventListener("click", function() {
+                var campo = document.getElementById("pesquisaHome");
+                if (campo && campo.value.trim() !== "") {
+                    alert("A pesquisa de obras ainda não está conectada ao banco de dados.");
+                } else if (campo) {
+                    campo.focus();
+                }
+            });
+        });
+    </script>
 
 </body>
 
